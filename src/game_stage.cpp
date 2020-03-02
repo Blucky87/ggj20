@@ -1,7 +1,7 @@
 #include "game_stage.h"
 #include "registry.h"
 #include "components/sprite_component.h"
-#include "components/position_component.h"
+#include "components/transform2d_component_base.h"
 #include "components/camera_component.h"
 #include "sprite_layers.h"
 #include "services/rhythm_service.h"
@@ -30,7 +30,7 @@ void GameStage::init()
 	world->addService(std::make_shared<UIService>());
 
 	world->createEntity()
-		.addComponent(PositionComponent(Vector2f(192.0f, 108.0f)))
+		.addComponent(Transform2DComponentBase(Vector2f(192.0f, 108.0f), Angle1f(0), Vector2f(1, 1), 0))
 		.addComponent(CameraComponent(game.getZoom(), Colour4f(0.0f, 0.0f, 0.0f), 1, 0));
 }
 

@@ -1,7 +1,7 @@
 #include <systems/environment_object_system.h>
 #include "src/sprite_layers.h"
 #include "components/sprite_animation_component.h"
-#include "components/position_component.h"
+#include "components/transform2d_component_base.h"
 
 using namespace Halley;
 
@@ -51,7 +51,7 @@ private:
 			getWorld().createEntity()
 				.addComponent(SpriteComponent(Sprite(), int(layer), 1))
 				.addComponent(SpriteAnimationComponent(AnimationPlayer(getResources().get<Animation>(anim))))
-				.addComponent(PositionComponent(pos))
+				.addComponent(Transform2DComponentBase(pos, Angle1f(0), Vector2f(1, 1), 0))
 				.addComponent(EnvironmentObjectComponent(id, 0, ""))
 				.addComponent(BouncyComponent(0, amplitude));
 		}
