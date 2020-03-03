@@ -72,7 +72,7 @@ std::unique_ptr<Stage> GGJ20Game::startGame(const HalleyAPI* api)
 	auto windowSize = Vector2i(1920, 1080);
 	auto windowType = WindowType::BorderlessWindow;
 	if (screenSize != windowSize || Debug::isDebug()) {
-		windowSize = Vector2i(1920, 1080) / 5 * 4;
+		windowSize = screenSize / 5 * 4;
 		windowType = WindowType::Window;
 	}
 	
